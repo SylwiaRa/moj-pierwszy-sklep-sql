@@ -37,3 +37,6 @@ INSERT INTO zamowienia (klient_id, produkt_id, ilosc) VALUES
 (1, 2, 1),
 (2, 1, 1),
 (2, 3, 1);
+
+INSERT INTO produkty (nazwa, cena, stan_magazynowy) VALUES
+('Słuchawki Razer', 350.00, 15);
