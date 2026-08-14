@@ -40,3 +40,17 @@ INSERT INTO zamowienia (klient_id, produkt_id, ilosc) VALUES
 
 INSERT INTO produkty (nazwa, cena, stan_magazynowy) VALUES
 ('Słuchawki Razer', 350.00, 15);
+
+-- Tworzymy tabelę z recenzjami
+CREATE TABLE recenzje (
+    id SERIAL PRIMARY KEY,
+    produkt_id INT REFERENCES produkty(id) ON DELETE CASCADE,
+    ocena INT NOT NULL,
+    komentarz VARCHAR(200)
+);
+
+-- Wrzucamy kilka testowych ocen
+INSERT INTO recenzje (produkt_id, ocena, komentarz) VALUES
+(1, 5, 'Super laptop, bardzo szybki!'),
+(1, 4, 'Działa świetnie, ale głośny pod obciążeniem'),
+(3, 5, 'Wygodny fotel, plecy już nie bolą');
