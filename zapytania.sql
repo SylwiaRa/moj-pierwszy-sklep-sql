@@ -25,3 +25,7 @@ DELETE FROM zamowienia WHERE produkt_id=2;
 DELETE FROM produkty WHERE id = 2;
 
 SELECT * FROM produkty;
+
+SELECT produkty.nazwa, ROUND(AVG(recenzje.ocena), 1) AS srednia_ocena FROM produkty
+INNER JOIN recenzje ON recenzje.produkt_id = produkty.id
+GROUP BY produkty.nazwa;
