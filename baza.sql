@@ -18,7 +18,7 @@ CREATE TABLE klienci (
 CREATE TABLE zamowienia (
     id SERIAL PRIMARY KEY,
     klient_id INT REFERENCES klienci(id),
-    produkt_id INT REFERENCES produkty(id),
+    produkt_id INT REFERENCES produkty(id) ON DELETE CASCADE,
     ilosc INT NOT NULL,
     data_zamowienia DATE DEFAULT CURRENT_DATE
 );
