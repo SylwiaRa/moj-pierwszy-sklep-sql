@@ -1,3 +1,4 @@
+
 SELECT klienci.imie, produkty.nazwa, produkty.cena
 FROM klienci
 INNER JOIN zamowienia on klienci.id = zamowienia.klient_id
@@ -19,3 +20,5 @@ SET stan_magazynowy = 25
 WHERE id = 3;
 
 SELECT * FROM produkty;
+
+DELETE FROM zamowienia WHERE produkt_id=2;
