@@ -22,3 +22,6 @@ WHERE id = 3;
 SELECT * FROM produkty;
 
 DELETE FROM zamowienia WHERE produkt_id=2;
+DELETE FROM produkty WHERE id = 2;
+
+SELECT * FROM produkty;
