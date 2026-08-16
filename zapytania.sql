@@ -56,3 +56,9 @@ SELECT
 FROM produkty
 LEFT JOIN recenzje ON recenzje.produkt_id = produkty.id
 GROUP BY produkty.nazwa;
+
+-- Modyfikujemy strukturę tabeli klienci, dodając nową kolumnę typu tekstowego
+ALTER TABLE klienci ADD COLUMN telefon VARCHAR(20);
+
+-- Sprawdzamy, jak teraz wygląda tabela klienci
+SELECT * FROM klienci;
