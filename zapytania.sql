@@ -62,3 +62,10 @@ ALTER TABLE klienci ADD COLUMN telefon VARCHAR(20);
 
 -- Sprawdzamy, jak teraz wygląda tabela klienci
 SELECT * FROM klienci;
+
+UPDATE klienci 
+SET telefon = '+48 500 600 700' 
+WHERE id = 1;
+
+-- Podglądamy efekt
+SELECT * FROM klienci;
