@@ -74,3 +74,8 @@ ALTER TABLE klienci ADD COLUMN telefon VARCHAR(20);
 UPDATE klienci 
 SET telefon = '+48 500 600 700' 
 WHERE id = 1;
+
+-- Dodajemy dwa nowe zamówienia na ten sam produkt (Laptop ASUS o ID = 1)
+INSERT INTO zamowienia (klient_id, produkt_id, ilosc) VALUES 
+(1, 1, 1), -- Jan też kupuje Laptopa
+(3, 1, 1); -- Marek też kupuje Laptopa
