@@ -68,3 +68,9 @@ INSERT INTO recenzje (produkt_id, ocena, komentarz) VALUES
 (1, 5, 'Super laptop, bardzo szybki!'),
 (1, 4, 'Działa świetnie, ale głośny pod obciążeniem'),
 (3, 5, 'Wygodny fotel, plecy już nie bolą');
+
+ALTER TABLE klienci ADD COLUMN telefon VARCHAR(20);
+
+UPDATE klienci 
+SET telefon = '+48 500 600 700' 
+WHERE id = 1;
