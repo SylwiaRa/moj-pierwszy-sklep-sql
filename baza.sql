@@ -40,3 +40,26 @@ CREATE TABLE recenzje (
     ocena INT NOT NULL CHECK (ocena >= 1 AND ocena <= 5),
     komentarz VARCHAR(200)
 );
+
+-- ==========================================
+-- 3. ZASILANIE BAZY DANYCH (DANE TESTOWE)
+-- ==========================================
+
+-- Wrzucamy pełny asortyment produktów
+INSERT INTO produkty (nazwa, cena, stan_magazynowy) VALUES
+('Laptop ASUS', 4500.00, 10),
+('Myszka Logitech', 150.00, 40),
+('Fotel Diablo', 899.00, 5),
+('Słuchawki Razer', 350.00, 15);
+
+-- Wrzucamy konta klientów
+INSERT INTO klienci (imie, email) VALUES
+('Jan', 'jan@email.com'),
+('Anna', 'anna@email.com'),
+('Marek', 'marek@email.com');
+
+-- Wrzucamy pierwsze zakupy
+INSERT INTO zamowienia (klient_id, produkt_id, ilosc) VALUES
+(1, 2, 1),
+(2, 1, 1),
+(2, 3, 1);
