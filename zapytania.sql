@@ -37,19 +37,20 @@ SELECT produkty.nazwa, ROUND(AVG(recenzje.ocena), 1) AS srednia_ocena FROM produ
 INNER JOIN recenzje ON recenzje.produkt_id = produkty.id
 GROUP BY produkty.nazwa;
 
--- Wrzucamy oceny (liczniki ID na pewno startują od 1)
+-- 9. Wrzucamy oceny (liczniki ID na pewno startują od 1)
 INSERT INTO recenzje (produkt_id, ocena, komentarz) VALUES
 (1, 5, 'Super laptop, bardzo szybki!'),
 (1, 4, 'Działa świetnie, ale głośny pod obciążeniem'),
 (3, 5, 'Wygodny fotel, plecy już nie bolą');
 
--- Sprawdzamy filtrowanie HAVING dla produktów ze średnią powyżej 4.0
+-- 10. Sprawdzamy filtrowanie HAVING dla produktów ze średnią powyżej 4.0
 SELECT produkty.nazwa, ROUND(AVG(recenzje.ocena), 1) AS srednia_ocena 
 FROM produkty
 INNER JOIN recenzje ON recenzje.produkt_id = produkty.id
 GROUP BY produkty.nazwa
 HAVING AVG(recenzje.ocena) > 4.0;
 
+-- 11. Pełny raport ocen dla wszystkich produktów (zastąpienie NULL przez 0.0 przy braku opinii)
 SELECT 
     produkty.nazwa, 
     COALESCE(ROUND(AVG(recenzje.ocena), 1), 0.0) AS srednia_ocena 
@@ -57,15 +58,5 @@ FROM produkty
 LEFT JOIN recenzje ON recenzje.produkt_id = produkty.id
 GROUP BY produkty.nazwa;
 
--- Modyfikujemy strukturę tabeli klienci, dodając nową kolumnę typu tekstowego
-ALTER TABLE klienci ADD COLUMN telefon VARCHAR(20);
-
--- Sprawdzamy, jak teraz wygląda tabela klienci
-SELECT * FROM klienci;
-
-UPDATE klienci 
-SET telefon = '+48 500 600 700' 
-WHERE id = 1;
-
--- Podglądamy efekt
-SELECT * FROM klienci;
+-- 12. Wyciągnięcie unikalnych ID produktów, które zostały kiedykolwiek zamówione
+SELECT DISTINCT produkt_id FROM zamowienia;
