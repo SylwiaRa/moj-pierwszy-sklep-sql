@@ -36,3 +36,16 @@ SELECT * FROM produkty;
 SELECT produkty.nazwa, ROUND(AVG(recenzje.ocena), 1) AS srednia_ocena FROM produkty
 INNER JOIN recenzje ON recenzje.produkt_id = produkty.id
 GROUP BY produkty.nazwa;
+
+-- Wrzucamy oceny (liczniki ID na pewno startują od 1)
+INSERT INTO recenzje (produkt_id, ocena, komentarz) VALUES
+(1, 5, 'Super laptop, bardzo szybki!'),
+(1, 4, 'Działa świetnie, ale głośny pod obciążeniem'),
+(3, 5, 'Wygodny fotel, plecy już nie bolą');
+
+-- Sprawdzamy filtrowanie HAVING dla produktów ze średnią powyżej 4.0
+SELECT produkty.nazwa, ROUND(AVG(recenzje.ocena), 1) AS srednia_ocena 
+FROM produkty
+INNER JOIN recenzje ON recenzje.produkt_id = produkty.id
+GROUP BY produkty.nazwa
+HAVING AVG(recenzje.ocena) > 4.0;
