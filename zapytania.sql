@@ -49,3 +49,10 @@ FROM produkty
 INNER JOIN recenzje ON recenzje.produkt_id = produkty.id
 GROUP BY produkty.nazwa
 HAVING AVG(recenzje.ocena) > 4.0;
+
+SELECT 
+    produkty.nazwa, 
+    COALESCE(ROUND(AVG(recenzje.ocena), 1), 0.0) AS srednia_ocena 
+FROM produkty
+LEFT JOIN recenzje ON recenzje.produkt_id = produkty.id
+GROUP BY produkty.nazwa;
