@@ -63,3 +63,8 @@ INSERT INTO zamowienia (klient_id, produkt_id, ilosc) VALUES
 (1, 2, 1),
 (2, 1, 1),
 (2, 3, 1);
+
+INSERT INTO recenzje (produkt_id, ocena, komentarz) VALUES
+(1, 5, 'Super laptop, bardzo szybki!'),
+(1, 4, 'Działa świetnie, ale głośny pod obciążeniem'),
+(3, 5, 'Wygodny fotel, plecy już nie bolą');
